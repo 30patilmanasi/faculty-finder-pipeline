@@ -85,6 +85,18 @@ Once the server is running, you can access the following endpoints:
 └── README.md                 # Project documentation and setup guide
 Note: Although the project includes a default pipelines.py file, the Transformation and Storage stages are implemented as separate standalone scripts (transform.py and store.py). This allows for independent debugging of the cleaning logic and database migration without re-running the entire crawl.
 
+📊 Dataset Statistics
+The ETL pipeline successfully extracted and processed data for the entire faculty directory.
+
+Category                   Approximate Count
+Total Faculty Records          ~110+
+Data Points per Record        11 Fields
+Total Data Entities           ~1,200+
+Database Size                 ~150 KB (SQLite)
+
+
+
+
 
 **Example Response (`/faculty/all`):**
 ```json
@@ -108,6 +120,7 @@ Note: Although the project includes a default pipelines.py file, the Transformat
 
 
 ## Database Schema
+
 The table below defines the schema for the `Faculty` database and describes the specific transformation logic used to clean "HTML noise" and standardize the data for the API.
 
 | Field | SQLite Type | Description | Cleaning & Transformation Logic |
