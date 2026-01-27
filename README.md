@@ -89,9 +89,13 @@ Note: Although the project includes a default pipelines.py file, the Transformat
 The ETL pipeline successfully extracted and processed data for the entire faculty directory.
 
 Category                   Approximate Count
+
 Total Faculty Records          ~110+
+
 Data Points per Record        11 Fields
+
 Total Data Entities           ~1,200+
+
 Database Size                 ~150 KB (SQLite)
 
 
