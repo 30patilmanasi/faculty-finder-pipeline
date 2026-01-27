@@ -62,30 +62,53 @@ Once the server is running, you can access the following endpoints:
 
 
 ## Project Structure
+
 ├── faculty_scraper/          # Scrapy project root directory
+
 │   ├── spiders/              # Crawler directory
+
 │   │   ├── __init__.py       # Package initialization
+
 │   │   └── daiict.py         # Core web scraping logic for faculty profiles
+
 │   ├── __init__.py           # Package initialization
+
 │   ├── items.py              # Scraped data containers/models
+
 │   ├── middlewares.py        # Request and response processing layers
+
 │   ├── pipelines.py          # Default (empty) Scrapy pipelines
+
 │   └── settings.py           # Scrapy project configurations
+
 ├── logs/                     # Audit and compliance logs
+
 │   └── llm_usage.md          # AI interaction records (Project Policy requirement)
+
 ├── venv/                     # Python Virtual Environment for dependency isolation
+
 ├── faculty_data.json         # Raw extracted data (Ingestion Output)
+
 ├── faculty_data.csv          # Cleaned dataset in CSV format
+
 ├── faculty_data.db           # Structured Relational Database (SQLite)
+
 ├── transform.py              # Data cleaning: Removes HTML noise and handles nulls
+
 ├── store.py                  # Storage layer: Migrates cleaned data to SQLite
+
 ├── main.py                   # FastAPI: Serves processed data via /all endpoint
+
 ├── requirements.txt          # Project dependencies (Scrapy, FastAPI, Uvicorn)
+
 ├── scrapy.cfg                # Scrapy deployment configuration
+
 └── README.md                 # Project documentation and setup guide
+
 Note: Although the project includes a default pipelines.py file, the Transformation and Storage stages are implemented as separate standalone scripts (transform.py and store.py). This allows for independent debugging of the cleaning logic and database migration without re-running the entire crawl.
 
 📊 Dataset Statistics
+
 The ETL pipeline successfully extracted and processed data for the entire faculty directory.
 
 Category                   Approximate Count
@@ -128,27 +151,43 @@ Database Size                 ~150 KB (SQLite)
 The table below defines the schema for the `Faculty` database and describes the specific transformation logic used to clean "HTML noise" and standardize the data for the API.
 
 | Field | SQLite Type | Description | Cleaning & Transformation Logic |
+
 | :--- | :--- | :--- | :--- |
 | **id** | INTEGER | Primary key with auto-increment. | Unique identifier assigned by SQLite upon record insertion. |
-| **faculty_type** | TEXT | Classification of the faculty member. | Extracted from the source listing URL and standardized to Title Case. |
+
+| **faculty_type** | TEXT | Classification of the faculty member. | Extracted from the source listing URL and standardized to Title 
+Case. |
+
 | **name** | TEXT | Full name of the faculty member. | Converted to Title Case (e.g., "YASH VASAVADA" to "Yash Vasavada"). |
+
 | **email** | TEXT | Professional email address(es). | Flattened from raw list fragments into a comma-separated string. |
+
 | **phone** | TEXT | Official contact number(s). | Flattened into a unified string; whitespace normalized. |
+
 | **professional_link** | TEXT | Source URL to the individual profile. | Captured as a direct reference to the origin data. |
+
 | **address** | TEXT | Official campus or office address. | Normalized whitespace and stripped leading/trailing commas to remove **HTML noise**. |
+
 | **qualification** | TEXT | Educational background and degrees. | Joined list fragments with a " &#124; " pipe delimiter for readability. |
+
 | **specialization** | TEXT | Areas of professional expertise. | Cleaned of leading/trailing commas and **HTML noise**; joined into a clean string. |
+
 | **teaching** | TEXT | List of courses taught. | Newline-separated for proper display in the API response. |
+
 | **research** | TEXT | Current research interests/projects. | Populated with **"Research not provided"** fallback if source data is missing. |
+
 | **publications** | TEXT | Academic citations and papers. | Intensive cleaning to collapse whitespace and remove **HTML noise/fragments**. |
+
 | **biography** | TEXT | Professional summary/biography. | Joined multiple paragraph fragments into a single continuous block. |
 
 
 
 ###🏁 Conclusion & Learning Outcomes:
+
 This project successfully implemented a modular Faculty Data ETL Pipeline, demonstrating mastery over the four pillars of data engineering: Ingestion, Transformation, Storage, and Serving. By resolving the "null challenge," I learned to ensure data quality through sanitization logic while building a decoupled system architecture that is scalable and easy to maintain. Furthermore, navigating environment-specific challenges strengthened my skills in building reproducible software and providing data-as-a-service via FastAPI.
 
 🚀 Future Enhancements :
+
 Cross-Institutional Scalability: Generalize Scrapy logic to support diverse directory structures across multiple universities.
 Semantic Search Integration: Implement vector embeddings to enable natural language queries against faculty bios.
 Analytical Dashboard: Develop a Streamlit or React interface to visualize faculty research trends and expertise.
