@@ -272,5 +272,4 @@ if __name__ == "__main__":
     "research": "Research not provided",
     "publications": "Yash Vasavada, , Michael Parr, Nidhi Sindhav, and Saumi S., A Space-Frequency Processor for Identifying and Isolating GNSS Signals Amidst Interference,...",
     "biography": "Yash Vasavada is currently a Professor at DAIICT, and he works in the areas of communication system design and development and application of machine learning algorithms..."
-
   }
