@@ -227,7 +227,7 @@ To simplify the project lifecycle, I have developed an **Orchestration Script**.
 ### **Orchestration Script (`run_pipeline.py`)**
 This script automates the manual terminal commands into a single execution flow:
 
-python
+```python
 import subprocess
 import sys
 
