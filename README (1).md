@@ -213,7 +213,7 @@ Automated Synchronization: Schedule periodic crawls using GitHub Actions or Airf
 
 
 
-# DA-IICT Faculty ETL Pipeline 🎓
+# DA-IICT Faculty ETL Pipeline 
 
 This project is a fully automated **ETL (Extract, Transform, Load)** pipeline designed to scrape, clean, store, and serve faculty data from the DA-IICT website.
 
@@ -272,4 +272,5 @@ if __name__ == "__main__":
     "research": "Research not provided",
     "publications": "Yash Vasavada, , Michael Parr, Nidhi Sindhav, and Saumi S., A Space-Frequency Processor for Identifying and Isolating GNSS Signals Amidst Interference,...",
     "biography": "Yash Vasavada is currently a Professor at DAIICT, and he works in the areas of communication system design and development and application of machine learning algorithms..."
+
   }
