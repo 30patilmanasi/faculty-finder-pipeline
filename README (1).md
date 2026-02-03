@@ -143,26 +143,6 @@ Storage Engine                 SQLite
 
 
 
-
-**Example Response (`/faculty/all`):**
-```json
- {
-    "id": 1,
-    "faculty_type": "Faculty",
-    "name": "Yash Vasavada",
-    "email": "yash_vasavada@dau.ac.in",
-    "phone": "079-68261634",
-    "professional_link": "https://www.daiict.ac.in/faculty/yash-vasavada",
-    "address": "# 1224, FB-1, DA-IICT, Gandhinagar, Gujarat, India – 382007",
-    "qualification": "PhD (Electrical Engineering), Virginia Polytechnic Institute and State University, USA",
-    "specialization": "Communication, Signal Processing, Machine Learning, Meet Prof. Yash Vasavada:, A Passionate Researcher in Wireless Communications and Signal Processing",
-    "teaching": "Introduction to Communication Systems, Advanced Digital Communications, Next Generation Communication Systems",
-    "research": "Research not provided",
-    "publications": "Yash Vasavada, , Michael Parr, Nidhi Sindhav, and Saumi S., A Space-Frequency Processor for Identifying and Isolating GNSS Signals Amidst Interference,...",
-    "biography": "Yash Vasavada is currently a Professor at DAIICT, and he works in the areas of communication system design and development and application of machine learning algorithms..."
-  }
-
-
 ## Database Schema
 
 The table below defines the schema for the `Faculty` database and describes the specific transformation logic used to clean "HTML noise" and standardize the data for the API.
@@ -221,7 +201,7 @@ Key learnings include:
 
   - Exposing data as a service using FastAPI
 
- Future Enhancements :
+Future Enhancements :
 
 Cross-Institutional Scalability: Generalize Scrapy logic to support diverse directory structures across multiple universities.
 
@@ -230,3 +210,21 @@ Semantic Search Integration: Implement vector embeddings to enable natural langu
 Analytical Dashboard: Develop a Streamlit or React interface to visualize faculty research trends and expertise.
 
 Automated Synchronization: Schedule periodic crawls using GitHub Actions or Airflow to detect data changes automatically.
+
+**Example Response (`/faculty/all`):**
+```json
+ {
+    "id": 1,
+    "faculty_type": "Faculty",
+    "name": "Yash Vasavada",
+    "email": "yash_vasavada@dau.ac.in",
+    "phone": "079-68261634",
+    "professional_link": "https://www.daiict.ac.in/faculty/yash-vasavada",
+    "address": "# 1224, FB-1, DA-IICT, Gandhinagar, Gujarat, India – 382007",
+    "qualification": "PhD (Electrical Engineering), Virginia Polytechnic Institute and State University, USA",
+    "specialization": "Communication, Signal Processing, Machine Learning, Meet Prof. Yash Vasavada:, A Passionate Researcher in Wireless Communications and Signal Processing",
+    "teaching": "Introduction to Communication Systems, Advanced Digital Communications, Next Generation Communication Systems",
+    "research": "Research not provided",
+    "publications": "Yash Vasavada, , Michael Parr, Nidhi Sindhav, and Saumi S., A Space-Frequency Processor for Identifying and Isolating GNSS Signals Amidst Interference,...",
+    "biography": "Yash Vasavada is currently a Professor at DAIICT, and he works in the areas of communication system design and development and application of machine learning algorithms..."
+  }
