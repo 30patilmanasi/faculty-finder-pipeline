@@ -8,8 +8,7 @@ def save_to_db(data):
     # Create connection to the relational DB
     conn = sqlite3.connect('faculty_data.db')
     cursor = conn.cursor()
-    
-    # 1. UPDATED SCHEMA: Added teaching, publications, and research columns
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS faculty (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,7 +28,6 @@ def save_to_db(data):
 
     # Efficient SQL storage
     for entry in data:
-        # 2. UPDATED INSERT: Added the 3 new fields to the query
         cursor.execute('''
             INSERT OR IGNORE INTO faculty (
                 name, education, email, phone, address, 
@@ -37,7 +35,7 @@ def save_to_db(data):
                 publications, research, profile_url
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
-            # 3. UPDATED MAPPING: Passing the new fields from the dictionary
+
             entry.get('name'), 
             entry.get('education'), 
             entry.get('email'),
@@ -45,9 +43,9 @@ def save_to_db(data):
             entry.get('address'), 
             entry.get('biography'),
             entry.get('specialization'), 
-            entry.get('teaching'),     # New Field
-            entry.get('publications'), # New Field
-            entry.get('research'),     # New Field
+            entry.get('teaching'),     
+            entry.get('publications'), 
+            entry.get('research'),     
             entry.get('profile_url')
         ))
 

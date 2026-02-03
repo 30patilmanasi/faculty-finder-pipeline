@@ -14,11 +14,9 @@ def transform_data(input_file='faculty_data.json'):
 
     cleaned_list = []
     for item in raw_data:
-        # Pre-cleaning strings to handle logic checks
         bio = item.get('biography', '').strip()
         spec = item.get('specialization', '').strip()
         
-        # New: Pre-cleaning for the three additional sections
         # This ensures we handle empty lists or messy whitespace from the scraper
         teach = item.get('teaching', '').strip()
         pubs = item.get('publications', '').strip()
@@ -36,8 +34,6 @@ def transform_data(input_file='faculty_data.json'):
             # Text Fields with fallback "Not available" messages
             'biography': bio if bio else "Data is not available",
             'specialization': spec if spec else "Data is not available",
-            
-            # --- NEW FIELDS ADDED BELOW ---
             'teaching': teach if teach else "Data is not available",
             'publications': pubs if pubs else "Data is not available",
             'research': res if res else "Data is not available"
