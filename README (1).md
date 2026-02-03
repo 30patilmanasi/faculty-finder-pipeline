@@ -211,6 +211,51 @@ Analytical Dashboard: Develop a Streamlit or React interface to visualize facult
 
 Automated Synchronization: Schedule periodic crawls using GitHub Actions or Airflow to detect data changes automatically.
 
+
+
+# DA-IICT Faculty ETL Pipeline 🎓
+
+This project is a fully automated **ETL (Extract, Transform, Load)** pipeline designed to scrape, clean, store, and serve faculty data from the DA-IICT website.
+
+
+
+---
+
+## Automation: The One-Command Run
+To simplify the project lifecycle, I have developed an **Orchestration Script**. This script manages the sequential execution of the crawler, the data processor, and the web server.
+
+### **Orchestration Script (`run_pipeline.py`)**
+This script automates the manual terminal commands into a single execution flow:
+
+python
+import subprocess
+import sys
+
+def run_command(command):
+    """Utility function to run shell commands"""
+    process = subprocess.run(command, shell=True)
+    if process.returncode != 0:
+        print(f" Error running command: {command}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    print(" Starting Faculty Data Pipeline...\n")
+
+    # Step 1: Run Scrapy spider (Extraction)
+    print("1️ Running web scraper...")
+    run_command("scrapy crawl faculty -o faculty_data.json")
+
+    # Step 2: Run transformation and storage (Transform & Load)
+    print("\n2️ Running transformation and storage...")
+    run_command("python store.py")
+
+    # Step 3: Start API server (Serve)
+    print("\n3️ Starting API server...")
+    run_command("python main.py")
+
+
+
+
 **Example Response (`/faculty/all`):**
 ```json
  {
