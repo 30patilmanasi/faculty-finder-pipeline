@@ -3,7 +3,7 @@ from transform import transform_data
 
 def save_to_db(data):
     """
-    Storage: Persists cleaned data in SQLite including newly extracted fields.
+    Storage: Persists cleaned data in SQLite.
     """
     # Create connection to the relational DB
     conn = sqlite3.connect('faculty_data.db')
@@ -19,9 +19,9 @@ def save_to_db(data):
             address TEXT,
             biography TEXT,
             specialization TEXT,
-            teaching TEXT,       -- New Column
-            publications TEXT,   -- New Column
-            research TEXT,       -- New Column
+            teaching TEXT,       
+            publications TEXT,   
+            research TEXT,       
             profile_url TEXT UNIQUE
         )
     ''')

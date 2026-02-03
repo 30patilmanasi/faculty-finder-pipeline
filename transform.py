@@ -2,8 +2,8 @@ import json
 
 def transform_data(input_file='faculty_data.json'):
     """
-    Transformation: Extracts entities and handles null values for all fields 
-    including newly added academic details.
+    Transformation: Extracts entities and handles null values for all fields .
+    
     """
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
