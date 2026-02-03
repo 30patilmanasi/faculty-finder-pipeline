@@ -29,7 +29,7 @@ Utilizes store.py and SQLite3 to migrate cleaned data into a structured relation
 
 ###Serving: Leverages FastAPI and Uvicorn in main.py to provide a RESTful API endpoint (/all), allowing users to consume the final dataset as JSON.
 
-##  Prerequisites & 🛠 Technical Stack 
+##  Prerequisites &  Technical Stack 
 Web Scraping: Scrapy (Asynchronous crawling)
 Data Processing: Python Standard Library / Pandas
 Database: SQLite3 (Relational Storage)
@@ -146,8 +146,7 @@ Storage Engine                 SQLite
 
 **Example Response (`/faculty/all`):**
 ```json
-[
-  {
+ {
     "id": 1,
     "faculty_type": "Faculty",
     "name": "Yash Vasavada",
@@ -162,7 +161,6 @@ Storage Engine                 SQLite
     "publications": "Yash Vasavada, , Michael Parr, Nidhi Sindhav, and Saumi S., A Space-Frequency Processor for Identifying and Isolating GNSS Signals Amidst Interference,...",
     "biography": "Yash Vasavada is currently a Professor at DAIICT, and he works in the areas of communication system design and development and application of machine learning algorithms..."
   }
-]
 
 
 ## Database Schema
