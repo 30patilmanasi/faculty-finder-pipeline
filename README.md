@@ -12,7 +12,7 @@ short_description: Smart Faculty Discovery Interface
 
 ## Author
 - **Names:** Manasi Patil & Krishna Prajapati
-- **Roll Nos:** 202518034, 2025180XX
+- **Roll Nos:** 202518034, 202518024
 - **Program:** MSc Data Science 
 - **Institution:** DAIICT, Gandhinagar
 - **Course:** Big Data Systems
